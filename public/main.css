@@ -1,0 +1,117 @@
+body{
+    background-color: #FFF9E8;
+    margin: 0;
+    font-family: "ADLaM Display", serif;
+}
+
+/* font from: https://fonts.google.com/specimen/ADLaM+Display?preview.text=hello */
+.adlam-display-regular {
+    font-family: "ADLaM Display", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+nav{
+    background-color: #FAD2E0;
+    outline: 5px solid #F6A2BF;
+    padding: 10px;
+    /* margin: 0; */
+    /* left: 0;
+    top: 0; */
+}
+
+.nav-list{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    list-style: none;
+}
+
+.nav-list img{
+    width: 35px;
+    height: 35px;
+}
+
+a:link, a:visited{
+    color: #000000;
+    text-decoration: none;
+}
+
+footer{
+    background-color: #FAD2E0;
+    outline: 5px solid #F6A2BF;
+    padding: 20px;
+    /* margin: 0; */
+    /* margin-bottom: 100%; */
+    /* clear: both;
+    position: relative;
+    margin-top: -200px; */
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.progress-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* flex-wrap: wrap; */
+}
+
+.progress-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.energy-bar, .happiness-bar{
+    width: 100%;
+    /* max-width: 300px; */
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 7px;
+    border: 1.2px solid #000000;
+    overflow: hidden;
+    /* position: relative; */
+    /* flex: 1; */
+}
+
+.energy-filled, .happiness-filled{
+    height: 100%;
+    /* width: 0; */
+    transition: width 0.5s ease;
+}
+
+.energy-filled{
+    background-color: #75A9F9;
+}
+
+.happiness-filled{
+    background-color: #FEFB64;
+}
+
+/* .happiness-bar{
+    width: 80%;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 7px;
+    border: 1.2px solid #000000;
+    overflow: hidden;
+    position: relative;
+} */
+
+/* .happiness-filled{
+    height: 100%;
+    background-color: #FEFB64;
+    width: 0;
+    transition: width 0.5s ease;
+} */
+
+.progress-label{
+    margin-top: 5px;
+    text-align: center;
+}

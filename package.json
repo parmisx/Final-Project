@@ -1,0 +1,20 @@
+{
+  "name": "final-project-1",
+  "version": "1.0.0",
+  "description": "Final project in computer science",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-sanitizer": "^1.0.6",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.0",
+    "mysql": "^2.18.1"
+  }
+}
