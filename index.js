@@ -16,6 +16,7 @@ var validator = require('express-validator');
 // create the express application object
 const app = express();
 const port = 8000;
+const router = express.Router();
 
 const path = require('path');
 
@@ -45,6 +46,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(__dirname + '/public'))
 
 app.use('/assets', express.static('assets'));
+
+// router.get('/play', function(req, res, next){
+//     res.render('play.ejs')
+// })
+
+app.get('/play', (req, res) => {
+    res.render('play.ejs')
+})
 
 // Define the database connection
 // const db = mysql.createConnection ({

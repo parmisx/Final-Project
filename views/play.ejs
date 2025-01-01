@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Pawsitive Math</title> 
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <!-- embedding the font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <!-- nav -->
+    <nav>
+        <ul class="nav-list">
+          <li><img src="../assets/paw-icon.png" alt="Paw Points Icon">1270</li> 
+          <li><a href="wardrobe"><img src="../assets/wardrobe-icon.png" alt="Wardrobe Icon"></a></li> 
+          <li><a href="play"><img src="../assets/game-icon.png" alt="Play Game Icon"></a></li> 
+          <li><a href="/"><img src="../assets/bed-icon.png" alt="Sleeping on bed Icon"></a></li> 
+          <li><img src="../assets/level-icon.png" alt="Level Icon">8</li>
+        </ul>
+    </nav>
+
+    <!-- <div class="room-container">
+        3D model of bedroom and pet
+    </div> -->
+
+    <div class="game-container">
+        <div class="question-container">2 x 2 = </div>
+        <form method="POST" action="answered">
+            <input id="answerInput" type="number" name="answerInput" required>
+            <input type="submit" value="Check" class="button"/>
+        </form>
+    </div>
+
+    <footer>
+      <div class="progress-container">
+        <div class="progress-items">
+          <div class="energy-bar">
+            <div class="energy-filled" style="width: 80%;"></div>
+          </div>
+          <div class="progress-label">Energy Bar</div>
+        </div>
+        <div class="progress-items">
+          <div class="happiness-bar">
+            <div class="happiness-filled" style="width: 35%;"></div>
+          </div>
+          <div class="progress-label">Happiness Bar</div>
+        </div>
+      </div>
+    </footer>
+    
+  </body>
+
+</html>
