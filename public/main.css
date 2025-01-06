@@ -156,3 +156,21 @@ form{
     background-color: #75A9F9;
     color: #ffffff;
 }
+
+.models{
+    position: relative;
+    display: inline-block;
+}
+
+.bedroomModel{
+    width: 100%;
+    height: 500px;
+}
+
+.petModel{
+    width: 80px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
