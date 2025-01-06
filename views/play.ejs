@@ -3,12 +3,20 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>Pawsitive Math</title> 
+    <title>Playing</title> 
     <link rel="stylesheet" type="text/css" href="/main.css">
     <!-- embedding the font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap" rel="stylesheet">
+
+    <!-- javascript code for the  -->
+    <script>
+        function showPopup() {
+          alert("Your answer has been submitted!");
+        }
+    </script>
+
   </head>
 
   <body>
@@ -30,7 +38,7 @@
 
     <div class="game-container">
         <div class="question-container">2 x 2 = </div>
-        <form method="POST" action="answered">
+        <form method="POST" onsubmit="showPopup(event)"> <!-- action="answered" -->
             <input id="answerInput" type="number" name="answerInput" required>
             <input type="submit" value="Check" class="button"/>
         </form>

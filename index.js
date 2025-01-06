@@ -55,6 +55,10 @@ app.get('/play', (req, res) => {
     res.render('play.ejs')
 })
 
+app.get('/wardrobe', (req, res) => {
+    res.render('wardrobe.ejs')
+})
+
 // Define the database connection
 // const db = mysql.createConnection ({
 //     host: 'localhost',
