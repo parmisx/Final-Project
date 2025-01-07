@@ -3,20 +3,12 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>Playing</title> 
+    <title>Sleeping</title> 
     <link rel="stylesheet" type="text/css" href="/main.css">
     <!-- embedding the font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap" rel="stylesheet">
-
-    <!-- javascript code for the  -->
-    <script>
-        function showPopup() {
-          alert("Your answer has been submitted!");
-        }
-    </script>
-
   </head>
 
   <body>
@@ -32,16 +24,11 @@
         </ul>
     </nav>
 
-    <!-- <div class="room-container">
-        3D model of bedroom and pet
-    </div> -->
-
-    <div class="game-container">
-        <div class="question-container">2 x 2 = </div>
-        <form method="POST" onsubmit="showPopup(event)"> <!-- action="answered" -->
-            <input id="answerInput" type="number" name="answerInput" required>
-            <input type="submit" value="Check" class="button"/>
-        </form>
+    <div class="room-container">
+      <div class="models">
+        <img src="../assets/bedroomModelFree.jpg" alt="3D model of bedroom" class="bedroomModel">
+        <img src="../assets/petModelFree.png" alt="3D model of pet" class="petModelSleeping">
+      </div>
     </div>
 
     <footer>
@@ -60,7 +47,7 @@
         </div>
       </div>
     </footer>
-    
+
   </body>
 
 </html>
