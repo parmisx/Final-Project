@@ -118,6 +118,7 @@ footer{
     text-align: center;
 }
 
+/* play game page */
 .game-container{
     /* margin: auto; */
     width: 50%;
@@ -131,8 +132,6 @@ footer{
     left: 20%;
     font-size: 50px;
 }
-
-/* .question-container */
 
 form{
     margin-top: 50%;
@@ -155,6 +154,46 @@ form{
 }
 
 .button:hover{
+    background-color: #75A9F9;
+    color: #ffffff;
+}
+
+.popup{
+    display: none;
+    position: fixed;
+    /* top: 200px;
+    left: 100px; */
+    margin: auto;
+    left: 50%;
+    right: 50%;
+    top: 30%;
+    /* width: 50%;
+    height: 100px;
+    background-color: #FFF9E8;
+    border: 5px solid #F6A2BF; */
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-message{
+    padding: 30px;
+    border: 5px solid #F6A2BF;
+    background-color: #FFF9E8;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popup-message button{
+    cursor: pointer;
+    background-color: #FAD2E0;
+    border: 5px solid #F6A2BF;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+}
+
+.popup-message button:hover{
     background-color: #75A9F9;
     color: #ffffff;
 }
