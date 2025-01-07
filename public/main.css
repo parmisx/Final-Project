@@ -157,7 +157,7 @@ form{
     color: #ffffff;
 }
 
-/* model placeholder images */
+/* model placeholder images for main page */
 .models{
     position: relative;
     display: inline-block;
@@ -176,4 +176,46 @@ form{
     top: 55%;
     left: 55%;
     transform: translate(-50%, -50%);
+}
+
+/* wardrobe page */
+.wardrobe-container{
+    margin: 20px;
+}
+
+.wardrobe-shelf{
+    background-color: #FAD2E0;
+    outline: 5px solid #F6A2BF;
+    border-radius: 10px;
+    width: 35%;
+    height: 600px;
+}
+
+.clothing-items li{
+    list-style: none;
+}
+
+.clothing-items li img{
+    width: 180px;
+    height: 150px;
+    list-style: none;
+    margin-bottom: -50px;
+}
+
+.change-button{
+    background-color: #FAD2E0;
+    outline: 5px solid #F6A2BF;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+}
+
+.change-button:hover{
+    background-color: #75A9F9;
+    color: #ffffff;
+}
+
+.petModel2{
+    width: 220px;
+    height: 400px
 }
