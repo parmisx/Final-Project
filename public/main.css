@@ -150,6 +150,8 @@ form{
     width: 100px;
     height: 50px;
     background-color: #F6A2BF;
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 .button:hover{
@@ -181,6 +183,10 @@ form{
 /* wardrobe page */
 .wardrobe-container{
     margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .wardrobe-shelf{
@@ -193,31 +199,42 @@ form{
 
 .clothing-items li{
     list-style: none;
+    cursor: pointer;
 }
 
 .clothing-items li img{
     width: 180px;
     height: 150px;
-    list-style: none;
+    /* list-style: none; */
     margin-bottom: -50px;
 }
 
-.change-button{
-    background-color: #FAD2E0;
-    outline: 5px solid #F6A2BF;
-    border-radius: 5px;
-    width: 100px;
-    height: 50px;
-}
-
-.change-button:hover{
-    background-color: #75A9F9;
-    color: #ffffff;
+.pet-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    margin-right: 100px;
+    margin-top: 50px;
 }
 
 .petModel2{
     width: 220px;
     height: 400px
+}
+
+.change-button{
+    background-color: #FAD2E0;
+    border: 5px solid #F6A2BF;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.change-button:hover{
+    background-color: #75A9F9;
+    color: #ffffff;
 }
 
 /* sleeping page */
