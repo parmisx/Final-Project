@@ -12,15 +12,37 @@
 
     <!-- javascript code for the answer submission -->
     <script>
-        function showPopup(event){
+
+      function checkAnswer(event) {
           event.preventDefault();
-          document.getElementById('popupMessage').style.display = 'flex';
-        }
-        function closePopup(){
+          let typedAnswer = document.getElementById('answerInput').value; // retrieve user answer
+          
+          // the server is checking the answer
+          fetch('/checking-answer', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: new URLSearchParams({ answerInput: typedAnswer, correctAnswer: "<%= correctAnswer %>" })
+          })
+          .then(response => response.json()) // gets the correct JSON response
+          .then(data => { // show popup message
+              document.getElementById('popupMessage').style.display = 'flex';
+              document.getElementById('popupText').innerText = data.message;
+          });
+      }
+
+      // closing popup tab and redirecting back to home page
+      function closePopup(){
           document.getElementById('popupMessage').style.display = 'none';
           window.location.href = '/';
-        }
-    </script>
+      }
+
+      // next button popup to redirect to the next question
+      function nextPopup(){
+          document.getElementById('popupMessage').style.display = 'none';
+          window.location.href = '/play';
+      }
+
+  </script>
 
   </head>
 
@@ -38,19 +60,26 @@
     </nav>
 
     <div class="game-container">
-        <div class="question-container">2 x 2 = </div>
-        <form method="POST" onsubmit="showPopup(event)"> <!-- action="answered" -->
+        <div class="question-container">
+          <%= question %>
+        </div>
+        <!-- <form method="POST" onsubmit="showPopup(event)"> action="answered" -->
+          <form method="POST" action="/checking-answer" onsubmit="checkAnswer(event)"> <!-- action="answered" -->
             <input id="answerInput" type="number" name="answerInput" required>
+            <input type="hidden" name="correctAnswer" value="<%= correctAnswer %>">
             <input type="submit" value="Check" class="button"/>
         </form>
     </div>
 
     <div id="popupMessage" class="popup">
       <div class="popup-message">
-        <p>Answer was correct/incorrect!</p>
+        <p id="popupText"></p>
+        <p id="correctAnswerText"></p>
+        <!-- <p>Answer was correct/incorrect!</p>
         <p>Answer: 4</p>
-        <p>Rewards: 57</p>
-        <button onclick="closePopup()">Yay!</button>
+        <p>Rewards: 57</p> -->
+        <button onclick="closePopup()"><img src="../assets/home-icon.png" alt="Home Icon"></button>
+        <button onclick="nextPopup()"><img src="../assets/arrows-icon.png" alt="Next Icon"></button>
       </div>
     </div>    
 

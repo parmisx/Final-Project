@@ -51,9 +51,9 @@ app.use('/assets', express.static('assets'));
 //     res.render('play.ejs')
 // })
 
-app.get('/play', (req, res) => {
-    res.render('play.ejs')
-})
+// app.get('/play', (req, res) => {
+//     res.render('play.ejs')
+// })
 
 app.get('/wardrobe', (req, res) => {
     res.render('wardrobe.ejs')
@@ -62,6 +62,29 @@ app.get('/wardrobe', (req, res) => {
 app.get('/sleep', (req, res) => {
     res.render('sleep.ejs')
 })
+
+// importing the math question generator
+const randomMathEquations = require('./routes/play');
+
+// load the route handlers for play page
+app.get('/play', (req, res) => {
+    const mathQuestion = randomMathEquations(); // get a random math question
+    res.render('play', {question:mathQuestion.question, correctAnswer:mathQuestion.answer}); //display the question and get the correct answer
+})
+
+// check the submited answer
+app.post('/checking-answer', (req, res) => {
+    const typedAnswer = parseFloat(req.body.answerInput); // retrieve the user answer
+    const correctAnswer = parseFloat(req.body.correctAnswer); // convert the string into numbers
+
+    // popup message to tell user if the answer is correct or not
+    if (typedAnswer === correctAnswer) {
+        res.json({ message: `Answer is correct !! 🌟 \n Rewards: ` });
+    } else {
+        res.json({ message: `Answer is incorrect ❌ \n Correct answer: ${correctAnswer}` }); // show the correct answer
+    }
+});
+
 
 // Define the database connection
 // const db = mysql.createConnection ({
