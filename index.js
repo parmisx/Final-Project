@@ -76,15 +76,15 @@ app.get('/play', (req, res) => {
 app.post('/checking-answer', (req, res) => {
     const typedAnswer = parseFloat(req.body.answerInput); // retrieve the user answer
     const correctAnswer = parseFloat(req.body.correctAnswer); // convert the string into numbers
+    const rewardsGained = Math.floor(Math.random() * 21) + 10; // points between 10 to 30
 
     // popup message to tell user if the answer is correct or not
     if (typedAnswer === correctAnswer) {
-        res.json({ message: `Answer is correct !! 🌟 \n Rewards: ` });
+        res.json({ message: `Answer is correct 🌟 \n Points rewarded: ${rewardsGained}` });
     } else {
         res.json({ message: `Answer is incorrect ❌ \n Correct answer: ${correctAnswer}` }); // show the correct answer
     }
 });
-
 
 // Define the database connection
 // const db = mysql.createConnection ({
