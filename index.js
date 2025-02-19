@@ -68,21 +68,33 @@ const randomMathEquations = require('./routes/play');
 
 // load the route handlers for play page
 app.get('/play', (req, res) => {
+    if(!req.session.rewardsTotal){
+        req.session.rewardsTotal = 0; // user starts with 0 points
+    }
+
     const mathQuestion = randomMathEquations(); // get a random math question
-    res.render('play', {question:mathQuestion.question, correctAnswer:mathQuestion.answer}); //display the question and get the correct answer
+    res.render('play', {
+        question: mathQuestion.question, // display the question
+        correctAnswer: mathQuestion.answer, // get the correct answer
+        rewardsTotal: req.session.rewardsTotal}); // get total points
 })
 
 // check the submited answer
 app.post('/checking-answer', (req, res) => {
     const typedAnswer = parseFloat(req.body.answerInput); // retrieve the user answer
     const correctAnswer = parseFloat(req.body.correctAnswer); // convert the string into numbers
-    const rewardsGained = Math.floor(Math.random() * 21) + 10; // points between 10 to 30
+    const rewardsGained = Math.floor(Math.random() * 16) + 5; // points between 5 to 20
+
+    if(!req.session.rewardsTotal){
+        req.session.rewardsTotal = 0; // user starts with 0 points
+    }
 
     // popup message to tell user if the answer is correct or not
-    if (typedAnswer === correctAnswer) {
-        res.json({ message: `Answer is correct 🌟 \n Points rewarded: ${rewardsGained}` });
-    } else {
-        res.json({ message: `Answer is incorrect ❌ \n Correct answer: ${correctAnswer}` }); // show the correct answer
+    if(typedAnswer === correctAnswer){
+        req.session.rewardsTotal += rewardsGained; // add the gained rewards to the total points
+        res.json({message: `Answer is correct 🌟 \n Points rewarded: ${rewardsGained}`});
+    } else{
+        res.json({message: `Answer is incorrect ❌ \n Correct answer: ${correctAnswer}`}); // show the correct answer
     }
 });
 

@@ -27,6 +27,8 @@
           .then(data => { // show popup message
               document.getElementById('popupMessage').style.display = 'flex';
               document.getElementById('popupText').innerText = data.message;
+              // total number of rewards (points)
+              document.getElementById('rewardsTotal').innerText = data.rewardsTotal;
           });
       }
 
@@ -56,7 +58,10 @@
     <!-- nav -->
     <nav>
         <ul class="nav-list">
-          <li><img src="../assets/paw-icon.png" alt="Paw Points Icon">1270</li> 
+          <li>
+            <img src="../assets/paw-icon.png" alt="Paw Points Icon">1270
+            <span id="rewardsTotal"><%= rewardsTotal %></span>
+          </li> 
           <li><a href="wardrobe"><img src="../assets/wardrobe-icon.png" alt="Wardrobe Icon"></a></li> 
           <li><a href="/"><img src="../assets/home-icon.png" alt="Home Icon"></a></li> 
           <li><a href="sleep"><img src="../assets/bed-icon.png" alt="Sleeping Icon"></a></li> 
