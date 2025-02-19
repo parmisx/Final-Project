@@ -9,6 +9,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap" rel="stylesheet">
+  
+    <!-- <script>
+      // total number of rewards (points)
+      function rewardsTotal(){
+        document.getElementById('rewardsTotal').style.display = 'none';
+      }
+    </script> -->
+
   </head>
 
   <body>
@@ -16,7 +24,10 @@
     <!-- nav -->
     <nav>
         <ul class="nav-list">
-          <li><img src="../assets/paw-icon.png" alt="Paw Points Icon">1270</li> 
+          <li>
+            <img src="../assets/paw-icon.png" alt="Paw Points Icon">
+            <span id="rewardsTotal"><%= rewardsTotal %></span>
+          </li> 
           <li><a href="wardrobe"><img src="../assets/wardrobe-icon.png" alt="Wardrobe Icon"></a></li> 
           <li><a href="play"><img src="../assets/game-icon.png" alt="Play Game Icon"></a></li> 
           <li><a href="sleep"><img src="../assets/bed-icon.png" alt="Sleeping Icon"></a></li> 

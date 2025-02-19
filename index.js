@@ -56,15 +56,23 @@ app.use('/assets', express.static('assets'));
 // })
 
 app.get('/wardrobe', (req, res) => {
-    res.render('wardrobe.ejs')
+    res.render('wardrobe.ejs', {rewardsTotal: req.session.rewardsTotal})
 })
 
 app.get('/sleep', (req, res) => {
-    res.render('sleep.ejs')
+    res.render('sleep.ejs', {rewardsTotal: req.session.rewardsTotal});
 })
 
 // importing the math question generator
 const randomMathEquations = require('./routes/play');
+
+app.use((req, res, next) => {
+    if(!req.session.rewardsTotal){
+        req.session.rewardsTotal = 0;
+    }
+    res.locals.rewardsTotal = req.session.rewardsTotal;
+    next();
+})
 
 // load the route handlers for play page
 app.get('/play', (req, res) => {
@@ -90,12 +98,16 @@ app.post('/checking-answer', (req, res) => {
     }
 
     // popup message to tell user if the answer is correct or not
+    let messsage;
     if(typedAnswer === correctAnswer){
         req.session.rewardsTotal += rewardsGained; // add the gained rewards to the total points
-        res.json({message: `Answer is correct 🌟 \n Points rewarded: ${rewardsGained}`});
+        //res.json({message: `Answer is correct 🌟 \n Points rewarded: ${rewardsGained}`});
+        message = `Answer is correct 🌟 \n Points rewarded: ${rewardsGained}`;
     } else{
-        res.json({message: `Answer is incorrect ❌ \n Correct answer: ${correctAnswer}`}); // show the correct answer
+        //res.json({message: `Answer is incorrect ❌ \n Correct answer: ${correctAnswer}`}); // show the correct answer
+        message = `Answer is incorrect ❌ \n Correct answer: ${correctAnswer}`;
     }
+    res.json({ message, rewardsTotal: req.session.rewardsTotal });
 });
 
 // Define the database connection
@@ -123,7 +135,7 @@ app.locals.gameData = {gameName: "Pawsitive"}
 
 // load the route handler for index.ejs
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {rewardsTotal: req.session.rewardsTotal});
 })
 // app.get('/wadrobe', (req, res) => {
 //     res.send()

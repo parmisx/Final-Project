@@ -27,8 +27,11 @@
           .then(data => { // show popup message
               document.getElementById('popupMessage').style.display = 'flex';
               document.getElementById('popupText').innerText = data.message;
-              // total number of rewards (points)
-              document.getElementById('rewardsTotal').innerText = data.rewardsTotal;
+              // total number of rewards (points) 
+              //document.getElementById('rewardsTotal').innerText = data.rewardsTotal;
+              if (data.rewardsTotal !== undefined) {
+                  document.getElementById('rewardsTotal').innerText = data.rewardsTotal;
+              }   
           });
       }
 
@@ -44,11 +47,6 @@
           window.location.href = '/play';
       }
 
-      // total number of rewards (points)
-      function rewardsTotal(){
-          document.getElementById('rewardsTotal').style.display = 'none';
-      }
-
     </script>
 
   </head>
@@ -59,7 +57,7 @@
     <nav>
         <ul class="nav-list">
           <li>
-            <img src="../assets/paw-icon.png" alt="Paw Points Icon">1270
+            <img src="../assets/paw-icon.png" alt="Paw Points Icon">
             <span id="rewardsTotal"><%= rewardsTotal %></span>
           </li> 
           <li><a href="wardrobe"><img src="../assets/wardrobe-icon.png" alt="Wardrobe Icon"></a></li> 
